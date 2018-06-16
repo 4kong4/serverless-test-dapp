@@ -1,0 +1,104 @@
+{
+  "service": {
+    "service": "sampledapp",
+    "serviceObject": {
+      "name": "sampledapp"
+    },
+    "provider": {
+      "stage": "dev",
+      "region": "us-east-1",
+      "variableSyntax": "\\${([ ~:a-zA-Z0-9._'\",\\-\\/\\(\\)]+?)}",
+      "name": "aws",
+      "runtime": "nodejs8.10",
+      "versionFunctions": true,
+      "remoteFunctionData": null,
+      "compiledCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "ServerlessDeploymentBucket": {
+            "Type": "AWS::S3::Bucket"
+          },
+          "WebSite": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+              "WebsiteConfiguration": {
+                "ErrorDocument": "index.html",
+                "IndexDocument": "index.html"
+              }
+            }
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": {
+              "Ref": "ServerlessDeploymentBucket"
+            }
+          },
+          "WebSiteUrl": {
+            "Value": {
+              "Fn::GetAtt": [
+                "WebSite",
+                "WebsiteURL"
+              ]
+            }
+          },
+          "WebSiteBucket": {
+            "Value": {
+              "Ref": "WebSite"
+            }
+          }
+        }
+      },
+      "coreCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "ServerlessDeploymentBucket": {
+            "Type": "AWS::S3::Bucket"
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": {
+              "Ref": "ServerlessDeploymentBucket"
+            }
+          }
+        }
+      }
+    },
+    "functions": {},
+    "resources": {
+      "Outputs": {
+        "WebSiteUrl": {
+          "Value": {
+            "Fn::GetAtt": [
+              "WebSite",
+              "WebsiteURL"
+            ]
+          }
+        },
+        "WebSiteBucket": {
+          "Value": {
+            "Ref": "WebSite"
+          }
+        }
+      },
+      "Resources": {
+        "WebSite": {
+          "Type": "AWS::S3::Bucket",
+          "Properties": {
+            "WebsiteConfiguration": {
+              "ErrorDocument": "index.html",
+              "IndexDocument": "index.html"
+            }
+          }
+        }
+      }
+    }
+  },
+  "package": {
+    "artifactDirectoryName": "serverless/sampledapp/dev/1529168333419-2018-06-16T16:58:53.419Z",
+    "artifact": ""
+  }
+}
