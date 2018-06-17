@@ -71,9 +71,10 @@ contract BaseDappToken is OwnableWithApp {
     }
 
     function transferFrom(address _from, address _to, uint256 _value) public {
-        require(allowance[_from][_to] >= _value);
-
-        allowance[_from][_to] -= _value;
+        if(_to != daoContract) {
+            require(allowance[_from][_to] >= _value);
+            allowance[_from][_to] -= _value;
+        }
         _transfer(_from, _to, _value);
     }
 
