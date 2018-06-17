@@ -19,7 +19,7 @@
 
     function wireBuyButton() {
         $("#buy-tokens-action").click(() => {
-            const contractAddress = '0x6BDeC446CaD3f3D308f317aC5DfAe2B1A28C2121';
+            const contractAddress = '0xCD866c41e2Ea3EcE128b3Da262A22027c37ea1fb';
 
             web3.eth.sendTransaction(
                 {
@@ -35,7 +35,7 @@
     }
 
     /*function wireSubscriptions() {
-        const tokenAddress = '0xfdE8F8AA7330Dd84Ce43E10EE990e3c962533c6F'; 
+        const tokenAddress = '0xE8cfEeF8858322FA4b8257994fB111CB227860C9'; 
         let subscription = web3.eth.subscribe('sent', {
             address: tokenAddress
         }, function(error, result) {
